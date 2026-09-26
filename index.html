@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silicon Interface Monitor</title>
+    <link rel  = "stylesheet" href = "style.css">
+</head>
+<body>
+
+          <header class = "main-header">
+            <div class = "header-text">
+                <h1>NETWORK PACKET STREAM MONITOR</h1>
+                <p>Packet Stream Analyser</p>
+            </div>
+          </header>
+
+          <!-- Top summary cards selection-->
+           <section class = "summary-container">
+             <div class  = "card">
+                <h3>TOTAL STREAM VOLUME</h3>
+                <div id = "total-packets" class = "metric-value">0</div>
+                <p>16-bit Packets received</p>
+             </div>
+             <div class = "card danger-card">
+                <h3>ACTIVE FAULT COUNTER</h3>
+                <div  id = "fault-count" class="metric-value">0</div>
+                <p>Priority 15 breaches</p> 
+             </div>
+           </section>
+
+           <!-- Main Workspace  Grid-->
+           <main class = "dashboard-grid">
+            <!-- CRITICAL ALERT PANEL-->
+             <section class = "panel alert-panel">
+                <h2> SYSTEM CRITICAL ALERTS</h2>
+                <div id = "alerts-container">
+                    <div class = "nominal-msg">No Hardware Anomalies Detected. All systems operating within normal parameters.</div>
+                </div>
+             </section>
+
+             <!--REGISTER DATA TABLE PANEL-->   
+             <section class = "panel table-panel">
+                <h2>DECODED SILICON REGISTER TRAFFIC LOGS</h2>
+                <div class = "table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>DEVICE ID (4-Bit)</th>
+                                <th>PRIORITY LEVEL (4-Bit)</th>
+                                <th>PAYLOAD DATA (8-bit)</th>
+                                <th>SAFETY STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody id ="data-table-body">
+                             <tr>
+                                <td colspan="4" class = "initial-msg">Click 'Refresh Stream' to poll hardware telemetry endpoint . . . . </td>
+                             </tr>
+                        </tbody>
+                    </table>
+                </div>
+             </section>
+        </main>   
+
+
+        <!--  Linking JavaScript file-->
+          <script src = "app.js"></script>
+</body>
+</html>
